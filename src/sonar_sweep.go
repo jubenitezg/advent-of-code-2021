@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"math"
 	"os"
 	"strconv"
 )
@@ -30,9 +31,9 @@ func readFile(fileName string) []int {
 	return lines
 }
 
-func solve(input []int) int {
+func solve1(input []int) int {
 	n := len(input)
-	if n < 0 {
+	if n == 0 {
 		return -1
 	}
 	answer := 0
@@ -47,8 +48,26 @@ func solve(input []int) int {
 	return answer
 }
 
+func solve2(input []int) int {
+	n := len(input)
+	if n == 0 {
+		return -1
+	}
+	answer := 0
+	currSum := math.MaxInt
+	for i := 0; i < n-2; i++ {
+		nextSum := input[i] + input[i+1] + input[i+2]
+		if currSum < nextSum {
+			answer++
+		}
+		currSum = nextSum
+	}
+	return answer
+}
+
 func main() {
 	input := readFile(File)
 	//input := []int{199,200,208,210,200,207,240,269,260,263}
-	fmt.Println(solve(input))
+	fmt.Println(solve1(input))
+	fmt.Println(solve2(input))
 }
