@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-const File = "./src/day2/dive_d2.txt"
+const File = "./src/day2/d2.txt"
 
 func readFile(fileName string) []string {
 	file, err := os.Open(fileName)

@@ -10,7 +10,7 @@ import (
 
 // Day 1 challenge from Advent of Code 2021
 
-const File = "./src/day1/sonar_sweep_d1.txt"
+const File = "./src/day1/d1.txt"
 
 func readFile(fileName string) []int {
 	file, err := os.Open(fileName)
